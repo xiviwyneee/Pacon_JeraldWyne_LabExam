@@ -1,0 +1,777 @@
+:root {
+    color-scheme: dark;
+    --cream: #f2f4e5;
+    --sage: #9cb66d;
+    --muted: #a6aca1;
+    --border: rgba(199,217,163,.3);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100svh;
+    color: var(--cream);
+    background: #0e2519 center/cover no-repeat;
+    font-family: 'Segoe UI',Arial,sans-serif;
+    font-size: 18px;
+    font-weight: 300;
+}
+
+.login-page {
+    background-image: url('images/signin-bg.png');
+}
+
+.register-page {
+    background-image: url('images/signup-bg.png');
+}
+
+a, .text-link {
+    color: var(--sage);
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover, .text-link:hover {
+    text-decoration: underline;
+}
+
+button, input {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+button, a, input {
+    touch-action: manipulation;
+}
+
+button:focus-visible, a:focus-visible, input:focus-visible {
+    outline: 2px solid var(--cream);
+    outline-offset: 4px;
+}
+
+.auth-layout {
+    position: relative;
+    isolation: isolate;
+    display: grid;
+    grid-template-columns: 605px 1fr;
+    align-items: start;
+    width: 1440px;
+    min-height: 1024px;
+    margin: 0 auto;
+    padding: 54px 45px;
+    gap: 48px;
+    overflow: hidden;
+}
+
+.register-page .auth-layout {
+    grid-template-columns: 1fr 605px;
+}
+
+.form-panel {
+    position: relative;
+    z-index: 1;
+    grid-column: 1;
+    grid-row: 1;
+    min-width: 0;
+    min-height: 916px;
+    padding: 36px 60px 50px;
+    border: 1px solid rgba(199,217,163,.1);
+    border-radius: 27px;
+    background: linear-gradient(135deg,rgba(22,60,40,.38),rgba(14,37,25,.35));
+    backdrop-filter: blur(10px);
+}
+
+.register-page .form-panel {
+    grid-column: 2;
+    padding: 43px 60px 42px;
+}
+
+.brand {
+    display: block;
+    width: 125px;
+    margin: 0 auto 23px;
+}
+
+.brand img {
+    display: block;
+    width: 125px;
+    height: 128px;
+    object-fit: contain;
+}
+
+h1, h2 {
+    font-family: 'Times New Roman',Georgia,serif;
+    font-weight: 700;
+    letter-spacing: -1.8px;
+}
+
+h1 {
+    font-size: 64px;
+    line-height: 1.1;
+    margin: 0 -11px;
+    white-space: nowrap;
+}
+
+.subtitle {
+    font-size: 22px;
+    letter-spacing: -.7px;
+    margin: 0 -11px 37px;
+    line-height: 1.5;
+}
+
+.register-page h1 {
+    margin: 3px -11px 12px;
+}
+
+.register-page .subtitle {
+    margin-bottom: 31px;
+}
+
+.field {
+    margin-bottom: 26px;
+}
+
+.register-page .field {
+    margin-bottom: 26px;
+}
+
+.field > label {
+    display: block;
+    font-size: 20px;
+    line-height: 23px;
+    letter-spacing: -.6px;
+    margin: 0 8px 2px;
+}
+
+.input-wrap {
+    height: 50px;
+    display: flex;
+    align-items: center;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: #ffffff0f;
+    gap: 22px;
+    padding: 0 20px;
+    transition: border-color .15s,background .15s;
+}
+
+.input-wrap:focus-within {
+    border-color: var(--sage);
+    background: #ffffff16;
+    box-shadow: 0 0 0 2px #9cb66d25;
+}
+
+.input-wrap svg {
+    width: 24px;
+    height: 25px;
+    flex-shrink: 0;
+}
+
+.input-wrap input {
+    background: none;
+    color: var(--cream);
+    border: 0;
+    width: 100%;
+    min-width: 0;
+    font-size: 19px;
+    font-weight: 300;
+    letter-spacing: .4px;
+    height: 100%;
+    padding: 0;
+}
+
+.input-wrap input:focus-visible {
+    outline: none;
+}
+
+input::placeholder {
+    color: var(--muted);
+    opacity: 1;
+}
+
+input:-webkit-autofill {
+    -webkit-text-fill-color: var(--cream);
+    box-shadow: 0 0 0 1000px #2b4632 inset;
+    border-radius: 4px;
+}
+
+.password-toggle {
+    flex-shrink: 0;
+    padding: 5px 0;
+    border: 0;
+    background: none;
+    color: var(--cream);
+    font-size: 12px;
+}
+
+.password-help {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+    border: 0;
+}
+
+.form-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 24px 7px 43px;
+    gap: 12px;
+}
+
+.check {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--muted);
+    font-size: 18px;
+    line-height: 1.5;
+}
+
+.check input {
+    appearance: none;
+    width: 17px;
+    height: 17px;
+    flex: 0 0 17px;
+    border: 1px solid #c7d9a34d;
+    border-radius: 2px;
+    background: #ffffff0a;
+    margin: 0;
+    cursor: pointer;
+}
+
+.check input:checked {
+    appearance: auto;
+    accent-color: var(--sage);
+}
+
+.text-link {
+    padding: 0;
+    border: 0;
+    background: none;
+    color: var(--sage);
+    font: inherit;
+}
+
+.underlined {
+    text-decoration: underline;
+}
+
+.primary, .secondary {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    border-radius: 10px;
+    min-height: 50px;
+    padding: 10px 16px;
+    font-size: 18px;
+    font-weight: 500;
+    text-align: center;
+}
+
+.primary {
+    background: var(--sage);
+    color: #fff;
+    border: 1px solid transparent;
+}
+
+.primary:hover {
+    filter: brightness(1.08);
+}
+
+.secondary {
+    color: var(--cream);
+    background: #ffffff0a;
+    border: 1px solid var(--border);
+}
+
+.secondary:hover {
+    background: #ffffff17;
+    text-decoration: none;
+}
+
+.divider {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    margin: 14px 0 18px;
+    font-size: 18px;
+}
+
+.divider:before, .divider:after, .tagline:before, .tagline:after {
+    content: '';
+    height: 1px;
+    flex: 1;
+    background: var(--cream);
+}
+
+.switch {
+    color: var(--muted);
+    text-align: center;
+    margin: 48px -8px 0;
+    letter-spacing: .3px;
+    font-size: 19px;
+    line-height: 1.5;
+}
+
+.switch a {
+    margin-left: 9px;
+}
+
+.register-page .terms {
+    margin: 14px 7px 43px;
+    font-size: 17px;
+    align-items: flex-start;
+}
+
+.terms input {
+    margin-top: 4px;
+}
+
+.register-page .switch {
+    margin-top: 28px;
+}
+
+.adventure {
+    position: absolute;
+    left: 700px;
+    top: 0;
+    width: 710px;
+    height: 1024px;
+    text-align: center;
+    z-index: 0;
+}
+
+.register-page .adventure {
+    left: 32px;
+}
+
+.forest {
+    position: absolute;
+    left: -295px;
+    top: 0;
+    width: 1054px;
+    height: auto;
+    max-width: none;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.register-page .forest {
+    left: -16px;
+    width: 1039px;
+}
+
+.adventure h2 {
+    position: absolute;
+    top: 652px;
+    left: 0;
+    width: 100%;
+    font-size: 64px;
+    line-height: 1.1;
+    margin: 0;
+    white-space: nowrap;
+}
+
+.tagline {
+    position: absolute;
+    top: 728px;
+    left: 50px;
+    right: 50px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 17px;
+    line-height: 1.3;
+    white-space: nowrap;
+    letter-spacing: -.5px;
+}
+
+.hero-description {
+    position: absolute;
+    top: 750px;
+    left: 0;
+    width: 100%;
+    font-size: 17px;
+    line-height: 1.15;
+    margin: 0;
+    letter-spacing: -.5px;
+}
+
+.features {
+    position: absolute;
+    top: 799px;
+    left: 60px;
+    right: 72px;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 12px;
+}
+
+.feature-icon {
+    display: block;
+    width: 87px;
+    height: 87px;
+    margin: auto;
+    background: none;
+    border: 0;
+}
+
+.feature-icon img {
+    display: block;
+    width: 87px;
+    height: 87px;
+    object-fit: contain;
+}
+
+.features p {
+    font-size: 18px;
+    line-height: 1.15;
+    margin: -4px 0 0;
+    letter-spacing: -.4px;
+}
+
+.motto {
+    position: absolute;
+    top: 948px;
+    left: 0;
+    width: 100%;
+    font-size: 17px;
+    margin: 0;
+    letter-spacing: -.5px;
+}
+
+.notice {
+    background: #f0b68b12;
+    border: 1px solid #e8be8b66;
+    border-radius: 10px;
+    padding: 10px 14px;
+    font-size: 15px;
+    margin: 0 0 22px;
+    line-height: 1.5;
+    overflow-wrap: anywhere;
+}
+
+.notice p {
+    margin: 3px 0;
+}
+
+.notice.success {
+    background: #9cb66d15;
+    border-color: #9cb66d88;
+}
+
+dialog {
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    background: #173626;
+    color: var(--cream);
+    max-width: 480px;
+    width: calc(100% - 40px);
+    max-height: calc(100svh - 40px);
+    overflow: auto;
+    padding: 30px;
+    font-size: 17px;
+}
+
+dialog::backdrop {
+    background: #06140dc9;
+    backdrop-filter: blur(5px);
+}
+
+dialog h2 {
+    font-size: 32px;
+    margin: 0;
+}
+
+dialog p {
+    line-height: 1.6;
+}
+
+dialog .primary {
+    margin-top: 20px;
+}
+
+.dashboard-layout {
+    display: grid;
+    place-items: center;
+    min-height: 100svh;
+    padding: 24px;
+}
+
+.dashboard-panel {
+    max-width: 650px;
+    width: 100%;
+    min-height: 0;
+    padding: 45px;
+}
+
+.dashboard-logo {
+    display: block;
+    width: 100px;
+    margin: auto;
+}
+
+.dashboard-panel h1 {
+    white-space: normal;
+    font-size: 48px;
+    margin: 25px 0 15px;
+    overflow-wrap: anywhere;
+}
+
+.dashboard-panel .subtitle {
+    margin: 0 0 30px;
+}
+
+.account-details {
+    margin-bottom: 30px;
+}
+
+.account-details dt {
+    font-size: 14px;
+    color: var(--sage);
+    margin-top: 20px;
+}
+
+.account-details dd {
+    margin: 4px 0;
+    overflow-wrap: anywhere;
+}
+
+.auth-stage {
+    position: relative;
+    margin: auto;
+    flex-shrink: 0;
+}
+
+.auth-stage > .auth-layout {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform-origin: top left;
+}
+
+body.auth-desktop {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100svh;
+}
+
+@media (max-width: 900px) {
+    .auth-layout, .register-page .auth-layout {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        max-width: 570px;
+        min-height: 100svh;
+        padding: 24px 18px;
+        gap: 25px;
+        overflow: hidden;
+    }
+
+    .form-panel, .register-page .form-panel {
+        width: 100%;
+        min-height: 0;
+        padding: 30px 25px 35px;
+        order: 0;
+    }
+
+    .brand {
+        width: 100px;
+        margin-bottom: 20px;
+    }
+
+    .brand img {
+        width: 100px;
+        height: auto;
+    }
+
+    h1, .register-page h1 {
+        font-size: clamp(32px,8vw,45px);
+        margin: 0 0 7px;
+        white-space: normal;
+    }
+
+    .subtitle, .register-page .subtitle {
+        font-size: 18px;
+        margin: 0 0 28px;
+    }
+
+    .field, .register-page .field {
+        margin-bottom: 18px;
+    }
+
+    .field > label {
+        font-size: 18px;
+    }
+
+    .input-wrap {
+        gap: 12px;
+        padding: 0 14px;
+    }
+
+    .input-wrap input {
+        font-size: 16px;
+    }
+
+    .form-options {
+        flex-wrap: wrap;
+        margin: 22px 0 28px;
+    }
+
+    .check {
+        font-size: 15px;
+    }
+
+    .switch, .register-page .switch {
+        margin: 28px 0 0;
+        font-size: 16px;
+    }
+
+    .register-page .terms {
+        margin: 14px 0 28px;
+        font-size: 15px;
+    }
+
+    .adventure, .register-page .adventure {
+        position: relative;
+        left: auto;
+        top: auto;
+        order: 1;
+        width: 100%;
+        height: auto;
+        padding-top: calc((100vw - 36px)*.9);
+    }
+
+    .forest {
+        left: -48%;
+        width: 151%;
+        top: 0;
+    }
+
+    .register-page .forest {
+        left: -2%;
+        width: 146%;
+        top: 0;
+    }
+
+    .adventure h2 {
+        position: relative;
+        top: auto;
+        left: auto;
+        font-size: clamp(28px,7vw,40px);
+        white-space: normal;
+        margin: 0 0 12px;
+    }
+
+    .tagline {
+        position: relative;
+        top: auto;
+        left: auto;
+        right: auto;
+        font-size: 12px;
+        margin: 0 10px;
+    }
+
+    .hero-description {
+        position: relative;
+        top: auto;
+        left: auto;
+        font-size: 15px;
+        margin: 5px 0 0;
+    }
+
+    .hero-description br {
+        display: none;
+    }
+
+    .features {
+        position: relative;
+        top: auto;
+        left: auto;
+        right: auto;
+        margin: 24px 0 0;
+        gap: 8px;
+    }
+
+    .features p {
+        font-size: 15px;
+    }
+
+    .motto {
+        position: relative;
+        top: auto;
+        left: auto;
+        font-size: 12px;
+        margin: 25px 0 0;
+    }
+
+    .dashboard-panel {
+        padding: 28px;
+    }
+
+    .dashboard-panel h1 {
+        font-size: 34px;
+    }
+
+}
+
+@media (min-width: 571px) and (max-width: 900px) {
+    .adventure, .register-page .adventure {
+        padding-top: 480px;
+    }
+
+}
+
+@media (prefers-reduced-motion: reduce) {
+    * {
+        transition: none!important;
+    }
+
+}
+
+.password-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 30px;
+    width: 30px;
+    height: 36px;
+    padding: 0;
+    color: var(--muted);
+    border-radius: 5px;
+}
+
+.password-toggle:hover,
+.password-toggle[aria-pressed="true"] {
+    color: var(--cream);
+}
+
+.input-wrap .password-toggle .eye-icon {
+    width: 22px;
+    height: 22px;
+    flex-shrink: 0;
+}
+
+.password-toggle .eye-slash {
+    display: none;
+}
+
+.password-toggle[aria-pressed="true"] .eye-slash {
+    display: block;
+}
